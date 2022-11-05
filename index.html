@@ -7,7 +7,7 @@
   <title>Mesto</title>
 </head>
 <body>
-  <div class="root">
+  <article class="root">
     <header class="header root__content">
       <img class="header__logo" src="./images/header-logo.svg" alt="Логотип">
     </header>
@@ -24,57 +24,58 @@
         <button class="profile__add-button" type="button"></button>
       </section>
       <section class="elements">
-        <div class="element">
+        <article class="element">
           <img class="element__picture" src="./images/athens.jpg" alt="Афины">
           <div class="element__info">
             <h2 class="element__name">Афины</h2>
-            <button class="element__like"></button>
+            <button class="element__like" type="button"></button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__picture" src="./images/eiffel.jpg" alt="Эйфелева Башня">
           <div class="element__info">
             <h2 class="element__name">Париж</h2>
-            <button class="element__like"></button>
+            <button class="element__like" type="button"></button>
           </div>          
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__picture" src="./images/montreal.jpg" alt="Монреаль">
           <div class="element__info">
             <h2 class="element__name">Монреаль</h2>
-            <button class="element__like"></button>          </div>        
-        </div>
-        <div class="element">
+            <button class="element__like" type="button"></button>
+          </div>        
+        </article>
+        <article class="element">
           <img class="element__picture" src="./images/nyc.jpg" alt="Нью-Йорк">
           <div class="element__info">
             <h2 class="element__name">Нью-Йорк</h2>
-            <button class="element__like"></button>
+            <button class="element__like" type="button"></button>
           </div>          
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__picture" src="./images/barcelona.jpg" alt="Барселона">
           <div class="element__info">
             <h2 class="element__name">Барселона</h2>
-            <button class="element__like"></button>
+            <button class="element__like" type="button"></button>
           </div>          
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__picture" src="./images/verona.jpg" alt="Верона">
           <div class="element__info">
             <h2 class="element__name">Верона</h2>
-            <button class="element__like"></button>
+            <button class="element__like" type="button"></button>
           </div>
-        </div>
+        </article>
       </section>
     </main>
     <footer class="footer root__content">
       <p class="footer__copyright">© 2022 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <div class="popup">
       <div class="popup__container">
         <button class="popup__exit-button" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form-profile">
+        <form class="form-profile" name="form">
           <fieldset class="form-profile__fieldset">
             <input class="form-profile__input form-profile__input_type_name" type="text" name="profile-name" placeholder="Имя">
             <input class="form-profile__input form-profile__input_type_status" type="text" name="profile-status" placeholder="Статус">
@@ -82,8 +83,8 @@
           <button class="form-profile__save-button" type="submit">Сохранить</button>
         </form>
       </div>
-    </section>
+    </div>
   </div>
-  <script src="index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

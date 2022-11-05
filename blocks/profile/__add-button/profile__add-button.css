@@ -20,7 +20,7 @@
 @media (max-width: 600px) {
   .profile__add-button {
     margin-left: 0;
-    background-image: url(../../../images/add-button-small.svg);
+    background-size: 16px;
     padding: 23px 139px;
   }
 }

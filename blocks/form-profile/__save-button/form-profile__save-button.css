@@ -1,4 +1,5 @@
 .form-profile__save-button {
+  all: unset;
   padding: 0;
   width: 358px;
   height: 50px;
@@ -13,7 +14,7 @@
 }
 
 .form-profile__save-button:hover {
-  opacity: .8;
+  background-color: rgba(0, 0, 0, .8);
 }
 
 @media (max-width: 800px) {
