@@ -4,6 +4,7 @@
   background: transparent url(../../../images/add-button.svg) center no-repeat;
   border: 2px solid #fff;
   border-radius: 2px;
+  background-size: 22px;
   cursor: pointer;
 }
 

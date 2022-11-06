@@ -4,6 +4,7 @@
   border: 1px solid #fff;
   position: relative;
   top: 5px;
+  background-size: 10px;
   cursor: pointer;
 }
 
