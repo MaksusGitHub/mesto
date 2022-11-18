@@ -38,6 +38,10 @@ formProfile.addEventListener('submit', formSubmitHandler);
 
 // Дом узлы
 const elementsContainer = document.querySelector('.elements');
+const popupImage = document.querySelector('.popup_image');
+const popupPicture = popupImage.querySelector('.popup__picture');
+const popupCaption = popupImage.querySelector('.popup__caption');
+const popupImageCloseElem = popupImage.querySelector('.popup__exit-button');
 
 // Шаблоны
 const elementTemplate = document.querySelector('#element-template').content;
@@ -49,6 +53,19 @@ const handleActivateLike = (evt) => {
 const handleDeleteElement = (evt) => {
   evt.target.closest('.element').remove();
 };
+
+function popupImageClose() {
+  popupImage.classList.remove('popup_opened');
+};
+
+const handleOpenImage = (evt) => {
+  const targetElem = evt.target.closest('.element');
+  popupPicture.src = targetElem.querySelector('.element__picture').src;
+  popupCaption.textContent = targetElem.querySelector('.element__name').textContent;
+  popupImage.classList.add('popup_opened');
+};
+
+popupImageCloseElem.addEventListener('click', popupImageClose);
 
 // Генерация элементов
 const generateElement = (element) => {
@@ -65,6 +82,7 @@ const generateElement = (element) => {
   const deleteButton = newElement.querySelector('.element__trash');
   deleteButton.addEventListener('click', handleDeleteElement);
   
+  image.addEventListener('click', handleOpenImage);
 
   return newElement;
 };
@@ -110,4 +128,3 @@ popupNewCardCloseElem.addEventListener('click', popupNewCardClose);
 
 formProfileNewCard.addEventListener('submit', formNewCardSubmitHandler);
 
-// Кнопка карточки "like"
