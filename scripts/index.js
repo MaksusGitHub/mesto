@@ -1,36 +1,3 @@
-const initialElements = [
-  {
-    name: 'Афины',
-    src: './images/athens.jpg',
-    alt: 'Афины'
-  },
-  {
-    name: 'Эйфелева Башня',
-    src: './images/eiffel.jpg',
-    alt: 'Эйфелева Башня'
-  },
-  {
-    name: 'Монреаль',
-    src: './images/montreal.jpg',
-    alt: 'Монреаль'
-  },
-  {
-    name: 'Нью-Йорк',
-    src: './images/nyc.jpg',
-    alt: 'Нью-Йорк'
-  },
-  {
-    name: 'Барселона',
-    src: './images/barcelona.jpg',
-    alt: 'Барселона'
-  },
-  {
-    name: 'Верона',
-    src: './images/verona.jpg',
-    alt: 'Верона'
-  }
-];
-
 // Дом узлы
 
 const editElem = document.querySelector('.profile__edit-button');
@@ -75,6 +42,10 @@ const elementsContainer = document.querySelector('.elements');
 // Шаблоны
 const elementTemplate = document.querySelector('#element-template').content;
 
+const handleActivateLike = (evt) => {
+  evt.target.classList.toggle('element__like_active');
+};
+
 // Генерация элементов
 const generateElement = (element) => {
   const newElement = elementTemplate.querySelector('.element').cloneNode(true);
@@ -83,6 +54,10 @@ const generateElement = (element) => {
   const image = newElement.querySelector('.element__picture');
   image.src = element.src;
   image.alt = element.alt;
+
+  const likeButton = newElement.querySelector('.element__like');
+  likeButton.addEventListener('click', handleActivateLike);
+  
 
   return newElement;
 };
@@ -97,7 +72,7 @@ initialElements.forEach((element) => {
   renderElement(element);
 });
 
-// Добавление формы карточки
+// Добавление карточки
 const popupNewCardElem = document.querySelector('.popup_newCard');
 const addCardElem = document.querySelector('.profile__add-button');
 const popupNewCardCloseElem = popupNewCardElem.querySelector('.popup__exit-button');
@@ -127,3 +102,5 @@ addCardElem.addEventListener('click', popupNewCardOpen);
 popupNewCardCloseElem.addEventListener('click', popupNewCardClose);
 
 formProfileNewCard.addEventListener('submit', formNewCardSubmitHandler);
+
+// Кнопка карточки "like"
