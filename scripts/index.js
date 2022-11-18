@@ -94,3 +94,20 @@ const renderElement = (element) => {
 initialElements.forEach((element) => {
   renderElement(element);
 });
+
+// Добавление карточки
+const popupNewCardElem = document.querySelector('.popup_newCard');
+const addCardElem = document.querySelector('.profile__add-button');
+const popupNewCardCloseElem = popupNewCardElem.querySelector('.popup__exit-button');
+
+
+function popupNewCardOpen() {
+  popupNewCardElem.classList.add('popup_opened');
+}
+
+function popupNewCardClose() {
+  popupNewCardElem.classList.remove('popup_opened');
+}
+
+addCardElem.addEventListener('click', popupNewCardOpen);
+popupNewCardCloseElem.addEventListener('click', popupNewCardClose);
