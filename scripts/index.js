@@ -46,6 +46,10 @@ const handleActivateLike = (evt) => {
   evt.target.classList.toggle('element__like_active');
 };
 
+const handleDeleteElement = (evt) => {
+  evt.target.closest('.element').remove();
+};
+
 // Генерация элементов
 const generateElement = (element) => {
   const newElement = elementTemplate.querySelector('.element').cloneNode(true);
@@ -57,6 +61,9 @@ const generateElement = (element) => {
 
   const likeButton = newElement.querySelector('.element__like');
   likeButton.addEventListener('click', handleActivateLike);
+
+  const deleteButton = newElement.querySelector('.element__trash');
+  deleteButton.addEventListener('click', handleDeleteElement);
   
 
   return newElement;
