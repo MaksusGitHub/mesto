@@ -1,4 +1,4 @@
-const initialElements = [
+const initialCards = [
   {
     name: 'Афины',
     link: 'https://images.unsplash.com/photo-1573415620265-204f1ca6f1c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80'
