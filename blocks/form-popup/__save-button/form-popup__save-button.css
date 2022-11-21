@@ -1,4 +1,4 @@
-.form-profile__save-button {
+.form-popup__save-button {
   all: unset;
   padding: 0;
   width: 358px;
@@ -13,12 +13,12 @@
   cursor: pointer;
 }
 
-.form-profile__save-button:hover {
+.form-popup__save-button:hover {
   background-color: rgba(0, 0, 0, .8);
 }
 
 @media (max-width: 800px) {
-  .form-profile__save-button {
+  .form-popup__save-button {
     width: 238px;
     height: 46px;
     font-size: 14px;

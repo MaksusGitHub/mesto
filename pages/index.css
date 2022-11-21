@@ -32,9 +32,9 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/form-profile/__fieldset/form-profile__fieldset.css);
-@import url(../blocks/form-profile/__input/form-profile__input.css);
-@import url(../blocks/form-profile/__save-button/form-profile__save-button.css);
+@import url(../blocks/form-popup/__fieldset/form-popup__fieldset.css);
+@import url(../blocks/form-popup/__input/form-popup__input.css);
+@import url(../blocks/form-popup/__save-button/form-popup__save-button.css);
 @import url(../blocks/popup/__image-container/popup__image-container.css);
 @import url(../blocks/popup/__exit-button/popup__exit-button.css);
 @import url(../blocks/popup/__picture/popup__picture.css);
