@@ -1,9 +1,9 @@
 const editElem = document.querySelector('.profile__edit-button');
 const popupElem = document.querySelector('.popup');
 const popupCloseElem = popupElem.querySelector('.popup__exit-button');
-const formProfile = popupElem.querySelector('.form-profile');
-const nameInput = popupElem.querySelector('.form-profile__input_type_name');
-const statusInput = popupElem.querySelector('.form-profile__input_type_status');
+const formPopup = popupElem.querySelector('.form-popup');
+const nameInput = popupElem.querySelector('.form-popup__input_type_name');
+const statusInput = popupElem.querySelector('.form-popup__input_type_status');
 const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
 
@@ -16,9 +16,9 @@ const popupImageCloseElem = popupImage.querySelector('.popup__exit-button');
 const popupNewCardElem = document.querySelector('.popup_newCard');
 const addCardElem = document.querySelector('.profile__add-button');
 const popupNewCardCloseElem = popupNewCardElem.querySelector('.popup__exit-button');
-const formProfileNewCard = popupNewCardElem.querySelector('.form-profile');
-const nameInputNewCard = popupNewCardElem.querySelector('.form-profile__input_type_name');
-const srcInputNewCard = popupNewCardElem.querySelector('.form-profile__input_type_src');
+const formPopupNewCard = popupNewCardElem.querySelector('.form-popup');
+const nameInputNewCard = popupNewCardElem.querySelector('.form-popup__input_type_name');
+const srcInputNewCard = popupNewCardElem.querySelector('.form-popup__input_type_src');
 
 const elementTemplate = document.querySelector('#element-template').content;
 
@@ -48,7 +48,7 @@ function formSubmitHandler (evt) {
 editElem.addEventListener('click', popupOpen);
 popupCloseElem.addEventListener('click', popupClose);
 
-formProfile.addEventListener('submit', formSubmitHandler);
+formPopup.addEventListener('submit', formSubmitHandler);
 
 const handleActivateLike = (evt) => {
   evt.target.classList.toggle('element__like_active');
@@ -122,4 +122,4 @@ function formNewCardSubmitHandler(evt) {
 addCardElem.addEventListener('click', popupNewCardOpen);
 popupNewCardCloseElem.addEventListener('click', popupNewCardClose);
 
-formProfileNewCard.addEventListener('submit', formNewCardSubmitHandler);
+formPopupNewCard.addEventListener('submit', formNewCardSubmitHandler);
