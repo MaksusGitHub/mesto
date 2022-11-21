@@ -23,14 +23,14 @@
         </div>
         <button class="profile__add-button" type="button" aria-label="Добавить"></button>
       </section>
-      <section class="elements" aria-label="Карточки мест">
+      <section class="cards" aria-label="Карточки мест">
 
       </section>
     </main>
     <footer class="footer root__content">
       <p class="footer__copyright">© 2022 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_profile-edit">
       <div class="popup__container">
         <button class="popup__exit-button" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -43,7 +43,7 @@
         </form>
       </div>
     </div>
-    <div class="popup popup_newCard">
+    <div class="popup popup_addCard">
       <div class="popup__container">
         <button class="popup__exit-button" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
@@ -64,13 +64,13 @@
       </div>
     </div>
   </div>
-<template id="element-template">
-  <article class="element">
-    <button class="element__trash" type="button" aria-label="Удалить"></button>
-    <img class="element__picture" src="#" alt="#">
-    <div class="element__info">
-      <h2 class="element__name"></h2>
-      <button class="element__like" type="button" aria-label="Нравится"></button>
+<template id="card-template">
+  <article class="card">
+    <button class="card__trash" type="button" aria-label="Удалить"></button>
+    <img class="card__picture" src="#" alt="#">
+    <div class="card__info">
+      <h2 class="card__name"></h2>
+      <button class="card__like" type="button" aria-label="Нравится"></button>
     </div>
   </article>
 </template>
