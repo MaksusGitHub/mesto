@@ -87,10 +87,10 @@ const generateCard = (card) => {
 };
 
 // Добавление карточки
-const renderCards = (card) => cardsContainer.prepend(generateCard(card));
+const renderCard = (card) => cardsContainer.prepend(generateCard(card));
 
 // Рендер всех карточек
-initialCards.forEach(renderCards);
+initialCards.forEach(renderCard);
 
 // Открытие/закрытие попапа добавление новой карточки
 openPopup(popupAddCard);
@@ -99,7 +99,7 @@ closePopup(popupAddCard);
 // Обработчик добавления новой карточки
 function handleFormAddCardSubmit(evt) {
   evt.preventDefault();
-  renderCards({ name: nameInputAddCard.value, link: srcInputAddCard.value });
+  renderCard({ name: nameInputAddCard.value, link: srcInputAddCard.value });
   formPopupAddCard.reset();
 
   closePopup(popupAddCard);
