@@ -22,11 +22,29 @@ const srcInputAddCard = popupAddCard.querySelector('.popup__input_type_src');
 
 const cardTemplate = document.querySelector('#card-template').content;
 
+// Закрытие попапа кликом на оверлей
+const closePopupByOverlay = (popup) => {
+  popup.addEventListener('click', (event) => {
+    if (event.target === event.currentTarget) {
+      closePopup(popup);
+    }
+  });
+}
+
+// Закрытие попапа кликом на Esc
+const closePopupByEsc = (evt, popup) => {
+  if (evt.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+  }
+}
+
 // Универсальные функции открытия и закрытия попапа
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   const buttonElem = popup.querySelector('.popup__button');
   disableButton(buttonElem, validateConf);
+  closePopupByOverlay(popup);
+  document.addEventListener('keydown', closePopupByEsc);
 };
 
 const closePopup = (popup) => popup.classList.remove('popup_opened');
@@ -114,3 +132,5 @@ function handleFormAddCardSubmit(evt) {
 addCardBtn.addEventListener('click', () => openPopup(popupAddCard));
 popupAddCardCloseBtn.addEventListener('click', () => closePopup(popupAddCard));
 formPopupAddCard.addEventListener('submit', handleFormAddCardSubmit);
+
+
