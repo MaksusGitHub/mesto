@@ -17,64 +17,78 @@
         <div class="profile__info">
             <div class="profile__heading">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button" type="button"></button>
+              <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
             </div>
             <p class="profile__status">Исследователь океана</p>
         </div>
-        <button class="profile__add-button" type="button"></button>
+        <button class="profile__add-button" type="button" aria-label="Добавить"></button>
       </section>
-      <section class="elements" aria-label="Карточки мест">
+      <section class="cards" aria-label="Карточки мест">
 
       </section>
     </main>
     <footer class="footer root__content">
       <p class="footer__copyright">© 2022 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_profile-edit">
       <div class="popup__container">
         <button class="popup__exit-button" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="form-profile" name="form">
-          <fieldset class="form-profile__fieldset">
-            <input class="form-profile__input form-profile__input_type_name" type="text" name="profile-name" placeholder="Имя">
-            <input class="form-profile__input form-profile__input_type_status" type="text" name="profile-status" placeholder="Статус">
+        <form class="popup__form" name="form">
+          <fieldset class="popup__fieldset">
+            <label class="popup__field">
+              <input id="name-input" class="popup__input popup__input_type_name" type="text" name="profile-name" placeholder="Имя" minlength="2" maxlength="40" required>
+              <span class="name-input-error popup__error"></span>
+            </label>
+            <label class="popup__field">
+              <input id="status-input" class="popup__input popup__input_type_status" type="text" name="profile-status" placeholder="Статус" minlength="2" maxlength="200" required>
+              <span class="status-input-error popup__error"></span>
+            </label>
           </fieldset>
-          <button class="form-profile__save-button" type="submit">Сохранить</button>
+          <button class="popup__button" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
-    <div class="popup popup_newCard">
+    <div class="popup popup_addCard" novalidate>
       <div class="popup__container">
-        <button class="popup__exit-button" type="button"></button>
+        <button class="popup__exit-button" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="form-profile" name="form">
-          <fieldset class="form-profile__fieldset">
-            <input class="form-profile__input form-profile__input_type_name" type="text" name="profile-name" placeholder="Название">
-            <input class="form-profile__input form-profile__input_type_src" type="text" name="profile-src" placeholder="Ссылка на картинку">
+        <form class="popup__form" name="form">
+          <fieldset class="popup__fieldset">
+            <label class="popup__field">
+              <input id="place-input" class="popup__input popup__input_type_name" type="text" name="profile-name" placeholder="Название" minlength="2" maxlength="30" required>
+              <span class="place-input-error popup__error"></span>
+            </label>
+            <label class="popup__field">
+              <input id="url-input" class="popup__input popup__input_type_src" type="url" name="profile-src" placeholder="Ссылка на картинку" required>
+              <span class="url-input-error popup__error"></span>
+            </label>
           </fieldset>
-          <button class="form-profile__save-button" type="submit">Создать</button>
+          <button class="popup__button" type="submit">Создать</button>
         </form>
       </div>
     </div>
-    <div class="popup popup_image">
+    <div class="popup popup_image" novalidate>
       <div class="popup__image-container">
-        <button class="popup__exit-button" type="button"></button>
+        <button class="popup__exit-button" type="button" aria-label="Закрыть"></button>
         <img class="popup__picture" src="#" alt="#">
         <p class="popup__caption"></p>
       </div>
     </div>
   </div>
-<template id="element-template">
-  <article class="element">
-    <button class="element__trash" type="button"></button>
-    <img class="element__picture" src="" alt="">
-    <div class="element__info">
-      <h2 class="element__name"></h2>
-      <button class="element__like" type="button"></button>
+<template id="card-template">
+  <article class="card">
+    <button class="card__trash" type="button" aria-label="Удалить"></button>
+    <img class="card__picture" src="#" alt="#">
+    <div class="card__info">
+      <h2 class="card__name"></h2>
+      <button class="card__like" type="button" aria-label="Нравится"></button>
     </div>
   </article>
 </template>
-<script src="./scripts/data.js"></script>
-<script src="./scripts/index.js"></script>
+<script defer src="./scripts/data.js"></script>
+<script defer src="./scripts/validate.js"></script>
+<script defer src="./scripts/index.js"></script>
+
 </body>
 </html>
