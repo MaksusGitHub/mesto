@@ -1,5 +1,7 @@
-.form-popup__input {
+.popup__input {
   all: unset;
+  position: relative;
+  width: 100%;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   font-weight: 400;
@@ -9,4 +11,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.popup__input:focus {
+  border-color: #0000FF;
 }
