@@ -1,9 +1,6 @@
 .root {
-  background-color: #000;
-  color: #fff;
   font-family: 'Inter', Arial, sans-serif;
   padding: 45px 0 60px;
-  height: 100vh;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,4 +12,8 @@
   .root {
     padding: 28px 0 36px;
   }
+}
+
+body { 
+  background-color: #000;
 }
