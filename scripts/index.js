@@ -85,6 +85,7 @@ const handleImageOpen = (evt) => {
   popupPicture.src = targetCard.querySelector('.card__picture').src;
   popupCaption.textContent = targetCard.querySelector('.card__name').textContent;
   popupImage.classList.add('popup_opened');
+  closePopupByOverlay(popupImage);
 };
 
 // Слушатель закрытия попапа с изображением
