@@ -24,19 +24,21 @@ const cardTemplate = document.querySelector('#card-template').content;
 
 // Закрытие попапа кликом на оверлей
 const closePopupByOverlay = (popup) => {
-  popup.addEventListener('click', (event) => {
-    if (event.target === event.currentTarget) {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target === evt.currentTarget) {
       closePopup(popup);
     }
   });
-}
+};
 
 // Закрытие попапа кликом на Esc
-const closePopupByEsc = (evt, popup) => {
-  if (evt.key === 'Escape') {
-    closePopup(document.querySelector('.popup_opened'));
-  }
-}
+const closePopupByEsc = (popup) => {
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  });
+};
 
 // Универсальные функции открытия и закрытия попапа
 const openPopup = (popup) => {
@@ -44,7 +46,7 @@ const openPopup = (popup) => {
   const buttonElem = popup.querySelector('.popup__button');
   disableButton(buttonElem, validateConf);
   closePopupByOverlay(popup);
-  document.addEventListener('keydown', closePopupByEsc);
+  closePopupByEsc(popup);
 };
 
 const closePopup = (popup) => popup.classList.remove('popup_opened');
@@ -86,6 +88,7 @@ const handleImageOpen = (evt) => {
   popupCaption.textContent = targetCard.querySelector('.card__name').textContent;
   popupImage.classList.add('popup_opened');
   closePopupByOverlay(popupImage);
+  closePopupByEsc(popupImage);
 };
 
 // Слушатель закрытия попапа с изображением
