@@ -59,6 +59,13 @@ const setEventListeners = (formElem, selectorList) => {
   const buttonElem = formElem.querySelector(selectorList.submitButtonSelector);
   toggleButtonState(inputList, buttonElem, selectorList);
   
+  // Деактивация кнопки по событию reset
+  formElem.addEventListener('reset', () => {
+    setTimeout(() => {
+      toggleButtonState(inputList, buttonElem, selectorList);
+    }, 0);
+  });
+
   inputList.forEach((inputElem) => {
     inputElem.addEventListener('input', () => {
       isValid(formElem, inputElem, selectorList)
