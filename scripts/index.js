@@ -1,3 +1,6 @@
+import { initialCards } from "./data.js";
+import { Card } from "./Card.js";
+
 const popups = document.querySelectorAll('.popup');
 const editProfileBtn = document.querySelector('.profile__edit-button');
 const popupProfileEdit = document.querySelector('.popup_profile-edit');
@@ -8,9 +11,9 @@ const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
 
 const cardsContainer = document.querySelector('.cards');
-const popupImage = document.querySelector('.popup_image');
-const popupPicture = popupImage.querySelector('.popup__picture');
-const popupCaption = popupImage.querySelector('.popup__caption');
+// const popupImage = document.querySelector('.popup_image');
+// const popupPicture = popupImage.querySelector('.popup__picture');
+// const popupCaption = popupImage.querySelector('.popup__caption');
 
 const popupAddCard = document.querySelector('.popup_addCard');
 const addCardBtn = document.querySelector('.profile__add-button');
@@ -18,7 +21,7 @@ const formPopupAddCard = popupAddCard.querySelector('.popup__form');
 const nameInputAddCard = popupAddCard.querySelector('.popup__input_type_name');
 const srcInputAddCard = popupAddCard.querySelector('.popup__input_type_src');
 
-const cardTemplate = document.querySelector('#card-template').content;
+// const cardTemplate = document.querySelector('#card-template').content;
 
 // Слушатели закрытия попапов по оверлею и крестику
 popups.forEach((popup) => {
@@ -73,40 +76,44 @@ editProfileBtn.addEventListener('click', openPopupProfileEdit);
 formPopupProfileEdit.addEventListener('submit', handleFormProfileEditSubmit);
 
 // Обработчики кнопок карточек
-const handleLikeClick = (evt) => evt.target.classList.toggle('card__like_active');
-const handleCardDelete = (evt) => evt.target.closest('.card').remove();
+// const handleLikeClick = (evt) => evt.target.classList.toggle('card__like_active');
+// const handleCardDelete = (evt) => evt.target.closest('.card').remove();
 
 // Обработчик открытия изображения
-const handleImageOpen = (card) => {
-  popupPicture.src = card.link;
-  popupCaption.textContent = card.name;
-  openPopup(popupImage);
-};
+// const handleImageOpen = (card) => {
+//   popupPicture.src = card.link;
+//   popupCaption.textContent = card.name;
+//   openPopup(popupImage);
+// };
 
 // Генерация карточек
-const generateCard = (card) => {
-  const newCard = cardTemplate.querySelector('.card').cloneNode(true);
+// const generateCard = (card) => {
+//   const newCard = cardTemplate.querySelector('.card').cloneNode(true);
 
-  newCard.querySelector('.card__name').textContent = card.name;
-  const cardImage = newCard.querySelector('.card__picture');
-  cardImage.src = card.link;
-  cardImage.alt = card.name;
+//   newCard.querySelector('.card__name').textContent = card.name;
+//   const cardImage = newCard.querySelector('.card__picture');
+//   cardImage.src = card.link;
+//   cardImage.alt = card.name;
 
-  const likeBtn = newCard.querySelector('.card__like');
-  likeBtn.addEventListener('click', handleLikeClick);
-  const deleteBtn = newCard.querySelector('.card__trash');
-  deleteBtn.addEventListener('click', handleCardDelete);
+//   const likeBtn = newCard.querySelector('.card__like');
+//   likeBtn.addEventListener('click', handleLikeClick);
+//   const deleteBtn = newCard.querySelector('.card__trash');
+//   deleteBtn.addEventListener('click', handleCardDelete);
 
-  cardImage.addEventListener('click', () => handleImageOpen(card));
+//   cardImage.addEventListener('click', () => handleImageOpen(card));
   
-  return newCard;
-};
+//   return newCard;
+// };
 
 // Добавление карточки
-const renderCard = (card) => cardsContainer.prepend(generateCard(card));
+// const renderCard = (card) => cardsContainer.prepend(card.generateCard(card));
 
 // Рендер всех карточек
-initialCards.forEach(renderCard);
+// initialCards.forEach(renderCard);
+initialCards.forEach((item) => {
+  const card = new Card(item, '#card-template');
+  cardsContainer.prepend(card.generateCard());
+});
 
 // Обработчик добавления новой карточки
 function handleFormAddCardSubmit(evt) {
@@ -120,5 +127,3 @@ function handleFormAddCardSubmit(evt) {
 // Слушатели попапа добавления новой карточки
 addCardBtn.addEventListener('click', () => openPopup(popupAddCard));
 formPopupAddCard.addEventListener('submit', handleFormAddCardSubmit);
-
-
