@@ -11,12 +11,8 @@ export class Card {
   }
 
   _setEventListeners() {
-
     this._card.querySelector('.card__like').addEventListener('click', () => this._handleLikeClick());
     this._card.querySelector('.card__trash').addEventListener('click', () => this._handleCardDelete());
-
-    //TODO: Разобраться с обработчиком открытия картинки по нажатию на карточку
-    // this._card.querySelector('.card__picture').addEventListener('click', () => this._handleImageOpen());
   }
 
   _handleLikeClick() {
@@ -26,13 +22,6 @@ export class Card {
   _handleCardDelete() {
     this._card.remove();
   }
-
-  // _handleImageOpen() {
-  //   const popupImage = document.querySelector('.popup_image');
-  //   popupImage.querySelector('.popup__picture').src = this._link;
-  //   popupImage.querySelector('.popup__caption').textContent = this._name;
-  //   openPopup(popupImage);
-  // }
 
   generateCard() {
     this._card = this._getTemplate();
