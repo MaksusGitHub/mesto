@@ -1,5 +1,15 @@
 import { initialCards } from "./data.js";
 import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+
+const validateConf = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
 
 const popups = document.querySelectorAll('.popup');
 const editProfileBtn = document.querySelector('.profile__edit-button');
@@ -20,6 +30,8 @@ const addCardBtn = document.querySelector('.profile__add-button');
 const formPopupAddCard = popupAddCard.querySelector('.popup__form');
 const nameInputAddCard = popupAddCard.querySelector('.popup__input_type_name');
 const srcInputAddCard = popupAddCard.querySelector('.popup__input_type_src');
+
+const formList = Array.from(document.querySelectorAll(validateConf.formSelector));
 
 // const cardTemplate = document.querySelector('#card-template').content;
 
@@ -108,17 +120,12 @@ formPopupProfileEdit.addEventListener('submit', handleFormProfileEditSubmit);
 // Добавление карточки
 // const renderCard = (card) => cardsContainer.prepend(card.generateCard(card));
 
-// Рендер всех карточек
-// initialCards.forEach(renderCard);
-initialCards.forEach((item) => {
-  const card = new Card(item, '#card-template');
-  cardsContainer.prepend(card.generateCard());
-});
-
 // Обработчик добавления новой карточки
 function handleFormAddCardSubmit(evt) {
   evt.preventDefault();
-  renderCard({ name: nameInputAddCard.value, link: srcInputAddCard.value });
+  const card = new Card({ name: nameInputAddCard.value, link: srcInputAddCard.value }, '#card-template');
+  cardsContainer.prepend(card.generateCard());
+  // renderCard({ name: nameInputAddCard.value, link: srcInputAddCard.value });
   formPopupAddCard.reset();
 
   closePopup(popupAddCard);
@@ -127,3 +134,16 @@ function handleFormAddCardSubmit(evt) {
 // Слушатели попапа добавления новой карточки
 addCardBtn.addEventListener('click', () => openPopup(popupAddCard));
 formPopupAddCard.addEventListener('submit', handleFormAddCardSubmit);
+
+// Рендер всех карточек
+// initialCards.forEach(renderCard);
+initialCards.forEach((item) => {
+  const card = new Card(item, '#card-template');
+  cardsContainer.prepend(card.generateCard());
+});
+
+// Добавление валидации форм
+formList.forEach((formElem) => {
+  const formValidator = new FormValidator(validateConf, formElem);
+  formValidator.enableValidation();
+});
