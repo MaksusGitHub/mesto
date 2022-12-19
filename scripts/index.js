@@ -88,11 +88,17 @@ cardsContainer.addEventListener('click', (evt) => {
   handleImageOpen(evt.target.closest('.card'));
 });
 
+// Вставка карточки в DOM
+const renderCard = (card) => cardsContainer.prepend(card.generateCard());
+
+// Создание карточки
+const createCard = (card, template) => new Card(card, template);
+
 // Обработчик добавления новой карточки
 function handleFormAddCardSubmit(evt) {
   evt.preventDefault();
-  const card = new Card({ name: nameInputAddCard.value, link: srcInputAddCard.value }, '#card-template');
-  cardsContainer.prepend(card.generateCard());
+  const card = createCard({ name: nameInputAddCard.value, link: srcInputAddCard.value }, '#card-template');
+  renderCard(card);
   formPopupAddCard.reset();
   closePopup(popupAddCard);
 };
@@ -103,8 +109,8 @@ formPopupAddCard.addEventListener('submit', handleFormAddCardSubmit);
 
 // Рендер всех карточек
 initialCards.forEach((item) => {
-  const card = new Card(item, '#card-template');
-  cardsContainer.prepend(card.generateCard());
+  const card = createCard(item, '#card-template');
+  renderCard(card);
 });
 
 // Добавление валидации форм
