@@ -74,25 +74,15 @@ function handleFormProfileEditSubmit (evt) {
 profileEditBtn.addEventListener('click', openPopupProfileEdit);
 formPopupProfileEdit.addEventListener('submit', handleFormProfileEditSubmit);
 
-// Обработчик открытия изображения карточек
-const handleImageOpen = (card) => {
-  popupPicture.src = card.querySelector('.card__picture').src;
-  popupPicture.alt = card.querySelector('.card__name').textContent;
-  popupCaption.textContent = card.querySelector('.card__name').textContent;
-  openPopup(popupImage);
-};
-
-// Слушатель открытия изображения в карточке
-cardsContainer.addEventListener('click', (evt) => {
-  if (evt.target.className != 'card__picture') return;
-  handleImageOpen(evt.target.closest('.card'));
-});
-
 // Вставка карточки в DOM
 const renderCard = (card) => cardsContainer.prepend(card.generateCard());
 
 // Создание карточки
 const createCard = (card, template) => new Card(card, template);
+
+// Слушатели попапа добавления новой карточки
+cardAddBtn.addEventListener('click', () => openPopup(popupAddCard));
+formPopupAddCard.addEventListener('submit', handleFormAddCardSubmit);
 
 // Обработчик добавления новой карточки
 function handleFormAddCardSubmit(evt) {
@@ -102,10 +92,6 @@ function handleFormAddCardSubmit(evt) {
   formPopupAddCard.reset();
   closePopup(popupAddCard);
 };
-
-// Слушатели попапа добавления новой карточки
-cardAddBtn.addEventListener('click', () => openPopup(popupAddCard));
-formPopupAddCard.addEventListener('submit', handleFormAddCardSubmit);
 
 // Рендер всех карточек
 initialCards.forEach((item) => {
@@ -118,3 +104,5 @@ formList.forEach((formElem) => {
   const formValidator = new FormValidator(validateConf, formElem);
   formValidator.enableValidation();
 });
+
+export { popupImage, popupPicture, popupCaption, openPopup }
