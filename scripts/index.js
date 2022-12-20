@@ -75,10 +75,13 @@ profileEditBtn.addEventListener('click', openPopupProfileEdit);
 formPopupProfileEdit.addEventListener('submit', handleFormProfileEditSubmit);
 
 // Вставка карточки в DOM
-const renderCard = (card) => cardsContainer.prepend(card.generateCard());
+const renderCard = (card) => cardsContainer.prepend(card);
 
 // Создание карточки
-const createCard = (card, template) => new Card(card, template);
+const createCard = (card, template) => {
+  const newCard = new Card(card, template);
+  return newCard.generateCard();
+};
 
 // Слушатели попапа добавления новой карточки
 cardAddBtn.addEventListener('click', () => openPopup(popupAddCard));
